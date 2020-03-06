@@ -1,0 +1,118 @@
+<h1>New Formation</h1>
+
+<%= render 'form', formation: @formation %>
+
+<%= link_to 'Back', formations_path %>
+
+
+<div class="container">
+<div class="row d-flex justify-content-center">
+  <div class="col-md-6">
+    <div class="accordion-group accordion-group-highlight" data-accordion-group>
+      <div class="accordion" data-accordion data-aos-anchor-placement="bottom-bottom">
+        <div class="" data-control>
+          <div class="text-center">
+          <button type="button" class="btn btn-primary mb-3">  Add my new formation </button>
+          </div>
+        </div>
+          <div class="accordion-content" data-content>
+            <div class="tab-pane show active" id="component-2-1" role="tabpanel" aria-labelledby="component-2-1">
+              <div class="">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="accordion-group accordion-group-steps" data-accordion-group>
+
+                        <div class="accordion open" data-accordion>
+                          <div class="accordion-control" data-control>
+                          <%= form_with(model: @formation, local: true) do |form| %>
+                          <h5>Upload pictures of your formation</h5>
+                            <div class="field">
+                            <%= form.file_field :image %>
+                            </div>
+                            <div class="accordion-content" data-content>
+                              <div class="accordion-content-wrapper">
+                              <% if @formation.errors.any? %>
+                                <div id="error_explanation">
+                                <h2><%= pluralize(formation.errors.count, "error") %> prohibited this formation from being saved:</h2>
+                                <ul>
+                                <% @formation.errors.full_messages.each do |message| %>
+                                <li><%= message %></li>
+                                <% end %>
+                                </ul>
+                              </div>
+                              <% end %>
+                              <div class="field">
+                                
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+
+                        <div class="accordion open" data-accordion>
+                          <div class="accordion-control" data-control>
+                          <h5>Choose a good name</h5>
+                          </div>
+                          <div class="accordion-content" data-content style="max-height: 150px">
+                            <div class="accordion-content-wrapper">
+                              <div class="field">
+                              <%= form.label :title %>
+                              <%= form.text_field :title, class: "form-control" %>
+                              </div>
+                              <div class="field">
+                              <%= form.label :description %>
+                              <%= form.text_area :description, class: "form-control" %>
+                              </div>
+                              <div class="field">
+                              <%= form.label :categorie %>
+                              <%= form.text_field :categorie, class: "form-control" %>
+                              </div>
+                              <div class="field">
+                              <%= form.label :tag %>
+                              <%= form.text_field :tag, class: "form-control" %>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                          <div class="accordion open" data-accordion>
+                            <div class="accordion-control" data-control>
+                            <h5>How big is your talent ?</h5>
+                            </div>
+                            <div class="accordion-content" data-content>
+                              <div class="accordion-content-wrapper">
+                                <div class="field">
+                                <%= form.label :price %>
+                                <%= form.number_field :price, class: "form-control" %>
+                                </div>
+                                <div class="field">
+                                <%= form.label :place %>
+                                <%= form.number_field :place, class: "form-control" %>
+                                </div>
+                                <div class="field">
+                                <%= form.label :session %>
+                                <%= form.number_field :session, class: "form-control" %>
+                                </div>
+                                <div class="actions">
+                                <%= form.submit "Save my formation", class: "btn btn-primary mt-2 ml-10" %>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-content-wrapper">
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+<% end %>

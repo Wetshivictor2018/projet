@@ -1,0 +1,40 @@
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="viewport">
+    <div class="image image-overlay" style="background-image: url(../../assets/cooodit/cover-test.jpeg);"></div>
+    <div class="container">
+      <div class="row justify-content-center align-items-center vh-100">
+        <div class="col-md-6 col-lg-5">
+          <div class="accordion-group accordion-group-portal" data-accordion-group>
+            <div class="accordion open" data-accordion>
+              <div class="accordion-control" data-control>
+                <h5>Connectez vous à votre compte Cooodit.</h5>
+              </div>
+              <div class="accordion-content" data-content>
+                <div class="accordion-content-wrapper">
+                  <form>
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Votre email</label>
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlInput2">Votre mot de passe</label>
+                      <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+                    </div>
+                    <%= f.submit "Se connecter", class: "btn btn-primary btn-block" %>
+                    <br>
+                    <%= link_to "Mot de passe oublié?", new_password_path(resource_name) %>
+                    <br>
+                    <%= link_to "Créer un compte", new_user_registration_path %>
+
+                  </form>
+                </div>
+              </div>
+              <% end %>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

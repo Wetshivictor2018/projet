@@ -1,0 +1,207 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- hero -->
+<section class="hero hero-with-header pattern bg-orange">
+  <div class="image image-overlay image-zoom" style="background-image:linear-gradient( to right bottom,
+            rgba(0, 0, 0, 0.3),
+            #7f15db  )">
+  </div>
+  <div class="container ">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+            
+      </div>
+    </div>
+  </div>    
+</section>
+<!-- / hero -->
+
+<!-- formations -->
+
+<section class="pt-0 pattern pattern-dark" align="center">
+  
+  <br><%= link_to 'New Formation', new_formation_path %><br/>
+  
+    <% @formations.each do |formation| %>
+        
+      <div class="item" onclick="location.href='<%= formation_path(formation.id) %>'", style="cursor: pointer;">
+    
+      <div class="image_formation image_item" style="background-color: rgba(255, 0, 0, 0.5) position: relative; z-index: 1;">
+        <div class="space" style=" background-color:; position:absolute; z-index:-1; top:0; left:0; right:0; bottom:0; opacity:0.2; border-top-left-radius: 15px;
+          border-top-right-radius: 15px;">
+        </div>
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/barbarian.png" alt="img">
+      </div>
+
+      <div class="this-item" style="background-color: #108CB5; filter: grayscale(0.6);">
+        <div class="titre_formation" ><%= formation.title %></div>
+        <div class="description_formation"> <%= formation.description %> </div>
+        <div class="prix_formation"> <%= formation.price %> € <br/></div>
+        <td><%= link_to 'Destroy',formation, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-dark btn-sm mt-1"%></td>
+      </div>
+
+        <div class="categorie_formation clearfix" style="background-color: #108CB5;"> <%= formation.categorie %> </div><br/>
+        </div>
+        
+</div> <!-- end item -->
+
+
+  <style>
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,900);
+
+$border-radius-size: 14px;
+$item: #EC9B3B;
+
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  background : white;
+  background-size: cover;
+  font: 14px/20px "Lato", Arial, sans-serif;
+  color: #9E9E9E;
+}
+
+
+.item:hover
+{
+  transform: scale(1.1);
+  transition: all 0.3s;
+}
+
+
+.item 
+{
+  background: white;
+  width: 300px;
+  display: inline-block;
+  border-radius: 20px;
+  position: relative;
+  text-align: center;
+  box-shadow: -1px 15px 30px -12px black;
+  z-index: 9999;
+  color: white;
+  margin: 15px 3%;
+  min-height: 200px;
+  margin-bottom: 20px; 
+  
+}
+
+.image_formation 
+{
+  position: relative;
+  height: 230px;
+  margin-bottom: 18px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.image_item 
+{
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/barbarian-bg.jpg');
+  img {
+    width: 450px;
+    position: relative;
+  }
+}
+
+img
+{
+  width: 300px;
+}
+
+.titre_formation
+{
+  font-size: 20px;
+  color: white;
+  font-weight: 900;
+  width: 100%;
+  position: relative;
+  top: auto;
+    bottom: ;
+    height: 70px;
+    padding: 8px 5% !important;
+    z-index: 2; 
+    position: relative; 
+    float: none;
+}
+
+.description_formation 
+{
+  color: white;
+  width: 100%;  
+  height: 80px;  
+  padding: 8px 5% 50px;
+    font-size: 14px;  
+  line-height: 19px;  
+  letter-spacing: 1px;  
+  font-weight: 400;
+  position: relative; 
+  float: none; 
+  
+}
+
+.prix_formation
+{
+  padding: 8px 5% 10px;
+  color: white;
+  font-weight: 600;
+}
+
+.categorie_formation
+{ 
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+    position: absolute;
+    width: 300px;
+    position: absolute;    
+    top:auto;
+    left: 0px;
+    bottom:auto;
+    padding: 15px 26px 12px;
+    border-radius: 0px 0px 20px 20px;
+    
+}
+
+
+</style>
+
+   
+
+  <!--
+        <h4 class="text-dark text-center"> <%= formation.title %> </h4>
+        <p class="text-left"> <%= formation.tag %> </p>
+        <p class="text-left"> <%= formation.categorie %> </p>
+        <p class="text-left"> <%= formation.description %> </p>
+        <p class="text-right"> <%= formation.campus %> </p>
+        <p class="text-orange text-left"> <%= formation.price %> </p>
+        <p> <%= formation.place %> place(s) dispnible(s) </p>
+-->       
+
+
+<!--
+        <tr>
+        <td><%= link_to 'Show me', formation_path(formation.id), class: "btn btn-outline-dark btn-sm mt-1"%></td>
+        <td><%= link_to 'Edit', edit_formation_path(formation.id), class: "btn btn-outline-dark btn-sm mt-1"%></td>
+        <td><%= link_to 'Destroy',formation, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-dark btn-sm mt-1"%></td>
+        <td><%= link_to 'Add to cart', new_line_item_path(formation.id), class: "btn btn-outline-success btn-sm mt-1"%></td>
+ -->       
+      </tr>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+<!-- / formations -->
+
+
+
+<p id="notice"><%= notice %></p>
+
+

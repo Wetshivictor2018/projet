@@ -1,0 +1,108 @@
+<!-- hero -->
+<section class="hero hero-with-header pattern bg-orange">
+  <div class="image image-overlay image-zoom" style="background-image:linear-gradient( to right bottom,
+            rgba(0, 0, 0, 0.3),
+            #7f15db  )">
+  </div>
+  <div class="container ">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+            
+      </div>
+    </div>
+  </div>    
+</section>
+<!-- / hero -->
+
+
+<h1>Editing Formation</h1>
+
+<%= render 'form', formation: @formation %>
+
+<%= link_to 'Show', @formation %> |
+<%= link_to 'Back', formations_path %>
+
+
+<div class="container">
+<% content_for :title, "Edit formation" %>
+<h1>Editing Formation</h1>
+
+<%= form_with(model: @formation, local: true) do |form| %>
+    <% if @formation.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(formation.errors.count, "error") %> prohibited this formation from being saved:</h2>
+  
+        <ul>
+        <% formation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+  
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :price %>
+      <%= form.number_field :price, class: "form-control"%>
+    </div>
+  
+    <div class="field">
+      <%= form.label :categorie %>
+      <%= form.text_field :categorie, class: "form-control" %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :session %>
+      <%= form.number_field :session, class: "form-control" %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :ref %>
+      <%= form.password_field :ref, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :campus %>
+      <%= form.text_field :campus, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :place %>
+      <%= form.text_field :place, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :tag %>
+      <%= form.text_field :tag, class: "form-control" %>
+    </div>
+  
+    
+  
+  <div class="field">
+  <%= form.label :image %>
+  <%= form.file_field :image, class:"form-control mb-2 pb-2 " %>
+
+  
+
+</div>
+
+
+
+<div class="actions mt-1">
+      <%= form.submit %>
+</div>
+
+  <% end %>
+
+<%= link_to "< Browse formation collection", formations_path, class: "btn btn-primary btn-sm mt-1"%>
+</div>

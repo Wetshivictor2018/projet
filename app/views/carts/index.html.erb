@@ -1,0 +1,43 @@
+ 
+<section>
+<p id="notice"><%= notice %></p>
+<br> <br> <br>
+<h3>Votre panier</h3>
+<section>
+<table>
+  <thead>
+    <tr>
+      <th>Cart ID</th>
+      <th>User ID</th>
+      <th>Formation</th>
+      <th>Price</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @carts.each do |cart| %>
+      <tr>
+        <td><%= cart.id %></td>
+        <td><%= cart.user.id %></td>
+        <td><%= cart.formation.title %></td>
+        <td><%= cart.formation.price %></td>
+</section>
+<section>
+        <td><%= link_to 'Show', formation_path(cart.formation.id) %></td>
+        <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'êtes-vous sûr de vouloir supprimer ce panier' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</section>
+<br>
+
+<p><strong>TOTAL PRICE : <%=@cart_total%></strong></p>
+<br>
+
+
+
+<%= link_to "Back", request.referer.present? ? request.referer : root_path %>
+</section>

@@ -1,0 +1,61 @@
+<section class="p-0 bg-orange">
+  <div class="image image-overlay image-cover" style="background-image:url(../../assets/images/demo/coworking/coworking-small-13.jpg)"
+      data-top-top="transform: translateY(0px);" 
+      data-top-bottom="transform: translateY(-250px);"></div>
+<div class="container">
+  <div class="row justify-content-left align-items-end vh-30 mb-5">
+    <div class="col col-md-10 col-lg-8">
+      <div class="row align-items-center">
+        <div class="col">
+          <div class="row align-items-center">
+            <div class="col-md-8">
+            <h2 class="mb-0">Votre Panier</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section>
+  <div class="container bg-light">
+  <%if @cart.line_items == []%>
+              <div class="text-center">Votre panier est vide, découvrez nos ateliers ... </div>
+              <div class="text-center"><%= link_to "Nos ateliers numériques", formations_path, class: "btn btn-primary btn-sm"%></div>
+            </div>
+          <%else%>
+            <table class="table">
+              <thead>
+                <tr class="font-weight-bold">
+                  <th class="font-weight-bold" scope="col">Atelier</th>
+                  <th class="font-weight-bold" scope="col">Prix</th>
+                  <th class="font-weight-bold" scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @cart.line_items.each do |line_item| %>
+                  <tr>
+                    <th scope="row"><%= line_item.formation.title %></th>
+                    <td><%= number_to_currency(line_item.formation.price, unit: "€") %></td>
+                    <td><%= link_to "Remove item", line_item_path(line_item), method: :delete %></td>
+                  </tr>
+                <% end %>
+                <tr>
+              <th scope="row"><%= link_to '<< Back to collection', formations_path %></th>
+              <td class="font-weight-bold">Cart total:</td>
+                            <td class="font-weight-bold"><%= number_to_currency(@cart.cart_total, unit: "€") %></td>
+              <td><%= link_to "Checkout now >>", new_order_path, class: "btn btn-primary" %></td>
+
+              </tr>
+              </tbody>
+            </table>
+
+              
+
+
+
+            <%end%>
+</div>
+</section>
